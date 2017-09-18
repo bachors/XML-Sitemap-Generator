@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<title>Sitemap Generator</title>		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="shortcut icon" href="assets/img/favicon.ico" />
+		
+		<!-- CodeMirror -->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/dialog/dialog.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/theme/material.min.css">
+		<!-- Roboto -->
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<!-- Style -->
+		<link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+		
+	</head>
+	<body>
+	
+		<!-- navbar -->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="">Sitemap Generator</a>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- main -->
+		<div class="content-wrap">
+		
+			<!-- header -->
+			<div class="header header-filter">
+				<div class="typed"></div>
+			</div>
+			
+			<!-- sitemap generator -->
+			<div class="container-fluid" id="sitemap_generator">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2"> 					
+						<div class="post" align="center">		
+							<div class="inputan">
+								<div class="input-group">
+									<span class="input-group-addon">URL</span>
+									<input type="text" class="form-control" id="url" value="" placeholder="required: http://www. or http://subdomain." required>
+								</div>
+							</div>	
+							<div class="inputan">
+								<div class="form-inline">
+									<div class="input-group">
+										<span class="input-group-addon">
+											Modified date
+										</span>
+										<select id="mod" class="form-control" title="Modified date">
+											<option value="">None</option>
+											<option value="14/07/2017" selected="">Server response date</option>
+										</select>
+									</div>
+									<div class="input-group">
+										<span class="input-group-addon">
+											Change frequency
+										</span>
+										<select id="freq" class="form-control" title="Change frequency">
+											<option value="">None</option>
+											<option value="always" selected="">Always</option>
+											<option value="hourly">Hourly</option>
+											<option value="daily">Daily</option>
+											<option value="weekly">Weekly</option>
+											<option value="monthly">Monthly</option>
+											<option value="yearly">Yearly</option>
+											<option value="never">Never</option>
+										</select>
+									</div>
+									<div class="input-group">
+										<span class="input-group-addon">
+											Default priority
+										</span>
+										<select id="prio" class="form-control" title="Default priority">
+											<option value="">None</option>
+											<option value="0.0">0.0</option>
+											<option value="0.1" selected="">0.1</option>
+											<option value="0.2">0.2</option>
+											<option value="0.3">0.3</option>
+											<option value="0.4">0.4</option>
+											<option value="0.5">0.5</option>
+											<option value="0.6">0.6</option>
+											<option value="0.7">0.7</option>
+											<option value="0.8">0.8</option>
+											<option value="0.9">0.9</option>
+											<option value="1.0">1.0</option>
+										</select>
+									</div>
+								</div>
+							</div>	
+							<input type="submit" class="btn btn-primary" id="generet" value="Generet !" />
+							<h3 id="persen"></h3>
+						</div>
+						<div class="post" align="center">
+							<div class="inputan" align="left">
+								<h5>XML Sitemap: <sup id="urlcount"></sup></h5>
+								<textarea id="sitemapxml"></textarea>
+							</div>	
+							<input type="submit" class="btn btn-warning" id="downloadxml" value="Download" />				
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- footer -->
+		<footer>
+			<div class="container">
+				<nav class="menu-bottom pull-left">
+					<ul>
+						<li>
+							<a href="#">
+							   Menu 1
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							   Menu 2
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							   Menu 3
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="copyright pull-right">
+					<p>&copy; 2017 Bachors.</p>
+				</div>
+			</div>
+		</footer>
+		
+		<!-- CodeMirror -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/xml/xml.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/dialog/dialog.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/search/searchcursor.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/search/search.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/display/placeholder.js"></script>
+		<!-- jQuery -->
+		<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+		<!-- Bootstrap -->
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<!-- Typed -->
+		<script type="text/javascript" src="assets/js/typed.js"></script>
+		<!-- Sitemap Generator -->
+		<script type="text/javascript" src="assets/js/sitemap_generator.js"></script>
+		<script>
+		$(document).ready(function(){
+		
+			// Typed
+			var subtitles = [
+				"<h1>XML Sitemap Generator</h1><h3>Create an XML sitemap that can be submitted to search engines.</h3>"
+			];
+			$(".typed").typed({
+				strings: subtitles,
+				typeSpeed: 20,
+				backDelay: 500,
+				showCursor: false,
+				contentType: 'html'
+			});
+			
+			// Run sitemap generator
+			var extract = 'extract.php';
+			$("#sitemap_generator").sitemap_generator(extract);
+		});
+		</script>
+		
+	</body>
+</html>
